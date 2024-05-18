@@ -1,83 +1,114 @@
-
-
-let humanscore=0
+let bottoni = document.querySelector("div");
+let vuoto=document.querySelector("#vuoto")
+let uma=document.querySelector("#uma")
+let comp=document.querySelector("#comp")
+let umano=0
 let computerscore=0
 
-function playgame(){
-   humanscore
-   computerscore
-    while(humanscore<5 && computerscore<5){
-    playround()}
-    }
+
+function playround(event){
+    
+function getcomputerchoice(){
+    return Math.floor(Math.random()* 3);}
+    let computer=getcomputerchoice()
+
+
+   
+    
     
 
-    function playround(){
-function getcomputerchoice(){
-        return Math.floor(Math.random()* 3);}
-function gethumanchoice(){
-let prom=prompt("rock,paper or scissor?").toLowerCase()
-if (prom=="rock"||prom=="paper"||prom=="scissor"){
-return prom}
-else{alert("this is not an Option.") 
-return gethumanchoice()}
+    let fusco= event.target;
+    
+    if (fusco.id=="rock"){
+        if (computer==0){
+        vuoto.textContent="draw!"
+        uma.textContent=umano
+        comp.textContent=computerscore
 
-
-}
-
-
-let umano=gethumanchoice()
-let computer=getcomputerchoice()
-    if (umano=="rock"){
-        if (computer==0){  
-            alert("draw!")
-        }}
-    if (umano=="rock"){
-         if (computer==1){  
-            alert("you lost!")
-            computerscore++
-        }}
-
-    if (umano=="rock"){
-        if (computer==2){  
-            alert("you won!")
-            humanscore++
-        }}
-
-    if (umano=="paper"){
-        if (computer==0){  
-           alert("you won!")
-           humanscore++
-        }}
-
-    if (umano=="paper"){
-         if (computer==1){  
-            alert("draw!")
-        }}
-
-    if (umano=="paper"){
-        if (computer==2){  
-            alert("you lost!")
+    }
+        
+    else if(computer==1){
         computerscore++
-        }}
+        vuoto.textContent="you lost!"
+        uma.textContent=umano
+        comp.textContent=computerscore  
+    }
+    else {
+        umano++
+        vuoto.textContent="you won!"
+        uma.textContent=umano
+        comp.textContent=computerscore
+    }}
 
-    if (umano=="scissor"){
-        if (computer==0){  
-            alert("you lost!")
-            computerscore++
-        }}
 
-    if (umano=="scissor"){
-        if (computer==1){  
-            alert("you won!")
-            humanscore++
-        }}
-    if (umano=="scissor"){
-       if (computer==2){  
-            alert("draw!")
-            }}
-}
+    if (fusco.id=="paper"){
+        if (computer==0){
+        umano++
+        vuoto.textContent="you won!"
+        uma.textContent=umano
+        comp.textContent=computerscore
+    }
+        
+    else if(computer==1){
+        vuoto.textContent="draw!"
+        uma.textContent=umano
+        comp.textContent=computerscore
+    }
+    else {
+         computerscore++
+         vuoto.textContent="you lost!"
+         uma.textContent=umano
+         comp.textContent=computerscore
+    }}  
+    
+   
+    if (fusco.id=="scissor"){
+        if (computer==0){
+        computerscore++
+        vuoto.textContent="you lost!"
+        uma.textContent=umano
+        comp.textContent=computerscore
+    }
+        
+    else if(computer==1){
+        umano++
+        vuoto.textContent="you won"
+        uma.textContent=umano
+        comp.textContent=computerscore
+    }
+        
+    else {
+        vuoto.textContent="draw!"
+        uma.textContent=umano
+        comp.textContent=computerscore}
+        
+    
+    }if(umano>=5){ 
+        umano=0
+        computerscore=0
+        uma.textContent=umano
+        comp.textContent=computerscore
+        alert("you won the match!")}
 
-    playgame()
+    else if(
+        computerscore>=5){ 
+        umano=0
+        computerscore=0
+        uma.textContent=umano
+        comp.textContent=computerscore
+        alert("computer won the match!")
+    }}
+    
+     
+    bottoni.addEventListener("click",playround)
+    
+
+
+
+
+    
+
+   
 
 
 
